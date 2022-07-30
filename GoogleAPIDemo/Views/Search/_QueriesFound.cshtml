@@ -1,0 +1,35 @@
+﻿@model IEnumerable<GoogleAPIDemo.ViewModels.QueriesViewModel>
+
+<style>
+    .card {
+        transition: 100ms ease-in-out;
+    }
+    .card:hover {
+        transform: scale(102%);
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="card mb-3 mx-auto" style="max-width: 700px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="@item.VideoThumbnailUrl" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h6 class="card-title">@item.VideoTitle</h6>
+                    <small class="text-muted">@item.ChannelName</small>
+                    <p class="card-text small">@item.VideoDescription</p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <a role="button" target="_blank" href=@Html.Raw("https://www.youtube.com/watch?v=" + item.VideoID) class="btn btn-sm btn-primary text-white float-end my-1">
+                        View on     
+                        <i class="text-white fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
