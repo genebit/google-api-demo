@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using GoogleAPIDemo.ViewModels;
 using Google.Apis.YouTube.v3;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace GoogleAPIDemo.Controllers
 {
@@ -16,7 +17,7 @@ namespace GoogleAPIDemo.Controllers
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyD4jXBCRTf3OTWF6Ip9Nnb_M0h_rWNJwgg",
+                ApiKey = ConfigurationManager.AppSettings["GoogleApiKey"].ToString(),
                 ApplicationName = this.GetType().ToString()
             });
 
